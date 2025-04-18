@@ -19,21 +19,24 @@ if not arquivo_mais_recente:
 with open(arquivo_mais_recente, "r", encoding="utf-8") as f:
     conteudo_ideia = f.read()
 
-# Prompt base com placeholders
+# Prompt atualizado com marcações de imagem
 prompt_roteiro = f"""
 Com base nesta ideia de vídeo:
 
 {conteudo_ideia}
 
-Crie um roteiro completo para um vídeo de TikTok com cerca de 1 minuto. O roteiro deve:
+Crie um roteiro para um vídeo de TikTok com cerca de 1 minuto, que será narrado por uma IA e ilustrado com imagens geradas por IA. Para isso:
 
-- Começar com o gancho (forte e impactante)
-- Apresentar a ideia de forma clara e direta
-- Ter frases curtas e simples, adequadas para narração ou legenda
-- Incluir sugestões de pausa ou corte onde for natural
-- Usar um tom acessível, empático e educativo
+- Para cada frase narrada, inclua uma sugestão de imagem logo acima, no formato: [Imagem: descrição da cena]
+- Use frases curtas, poéticas ou descritivas
+- Evite usar "você", "vamos", "na tela", etc.
+- Use um tom emocional, acessível e visual
+- Narração deve ser clara, com pausas naturais entre blocos
 
-Formate a resposta como um roteiro com quebras de linha para cada frase ou bloco.
+Formate o roteiro como blocos:
+[Imagem: descrição]
+Texto da narração
+(linha em branco para separar cada cena)
 """
 
 # Chave da API via variável de ambiente
@@ -41,7 +44,7 @@ client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Envia para o modelo
 response = client.chat.completions.create(
-    model="gpt-4.1-mini-2025-04-14",
+    model="gpt-4o",
     messages=[{"role": "user", "content": prompt_roteiro}],
     temperature=0.7,
     max_tokens=1000

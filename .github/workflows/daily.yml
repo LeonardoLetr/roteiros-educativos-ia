@@ -1,0 +1,26 @@
+name: Gerar Ideias para TikTok
+
+on:
+  schedule:
+    - cron: '0 11 * * *'  # Roda todo dia às 8h BRT (11h UTC)
+  workflow_dispatch:
+
+jobs:
+  gerar-ideias:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependências
+        run: pip install openai
+
+      - name: Rodar o script
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python app.py

@@ -19,22 +19,26 @@ if not arquivo_mais_recente:
 with open(arquivo_mais_recente, "r", encoding="utf-8") as f:
     conteudo_ideia = f.read()
 
-# Prompt atualizado com estilo técnico e didático
+# Prompt atualizado com tom de professora e uso do gancho
 prompt_roteiro = f"""
 Com base nesta ideia de vídeo:
 
 {conteudo_ideia}
 
-Crie um roteiro para um vídeo de TikTok com cerca de 1 minuto, que será narrado por uma IA e ilustrado com imagens geradas por IA.
+Crie um roteiro para um vídeo de TikTok com cerca de 1 minuto, que será narrado por uma IA e ilustrado com imagens.
+
+⚠️ Use a frase de impacto (gancho) como a introdução do vídeo.
+
+Escreva com o tom de uma professora explicando o conteúdo para outros educadores e responsáveis.
 
 Regras para o roteiro:
 
-- Utilize linguagem clara, acessível e didática
-- Evite termos técnicos ou poéticos demais
+- Linguagem técnica, mas acessível para leigos
+- Comece com o gancho exatamente como está escrito
 - Cada bloco pode conter até 2 ou 3 frases explicativas
-- Antes de cada bloco de texto, insira uma sugestão de imagem no formato: [Imagem: descrição da cena]
-- O roteiro deve conter aproximadamente 100 a 130 palavras no total
-- O conteúdo deve informar, educar e ser compreensível para o público leigo
+- Antes de cada bloco, insira uma sugestão de imagem no formato: [Imagem: descrição da cena]
+- Total aproximado entre 100 e 130 palavras
+- Traga exemplos, dados ou explicações claras, evitando frases genéricas ou poéticas
 
 Formato esperado:
 [Imagem: descrição da cena]

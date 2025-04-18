@@ -19,23 +19,26 @@ if not arquivo_mais_recente:
 with open(arquivo_mais_recente, "r", encoding="utf-8") as f:
     conteudo_ideia = f.read()
 
-# Prompt atualizado com marcações de imagem
+# Prompt atualizado com estilo técnico e didático
 prompt_roteiro = f"""
 Com base nesta ideia de vídeo:
 
 {conteudo_ideia}
 
-Crie um roteiro para um vídeo de TikTok com cerca de 1 minuto, que será narrado por uma IA e ilustrado com imagens geradas por IA. Para isso:
+Crie um roteiro para um vídeo de TikTok com cerca de 1 minuto, que será narrado por uma IA e ilustrado com imagens geradas por IA.
 
-- Para cada frase narrada, inclua uma sugestão de imagem logo acima, no formato: [Imagem: descrição da cena]
-- Use frases curtas, poéticas ou descritivas
-- Evite usar "você", "vamos", "na tela", etc.
-- Use um tom emocional, acessível e visual
-- Narração deve ser clara, com pausas naturais entre blocos
+Regras para o roteiro:
 
-Formate o roteiro como blocos:
-[Imagem: descrição]
-Texto da narração
+- Utilize linguagem clara, acessível e didática
+- Evite termos técnicos ou poéticos demais
+- Cada bloco pode conter até 2 ou 3 frases explicativas
+- Antes de cada bloco de texto, insira uma sugestão de imagem no formato: [Imagem: descrição da cena]
+- O roteiro deve conter aproximadamente 100 a 130 palavras no total
+- O conteúdo deve informar, educar e ser compreensível para o público leigo
+
+Formato esperado:
+[Imagem: descrição da cena]
+Texto narrado (2 a 3 frases)
 (linha em branco para separar cada cena)
 """
 

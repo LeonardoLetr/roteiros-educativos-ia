@@ -1,0 +1,39 @@
+name: Geração Completa de Conteúdo TikTok
+
+on:
+  schedule:
+    - cron: '0 11 * * *'  # Roda diariamente às 08h BRT
+  workflow_dispatch:
+
+jobs:
+  gerar-conteudo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependências
+        run: pip install openai
+
+      - name: Gerar ideia de vídeo
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python tikedutor.py
+
+      - name: Gerar roteiro com base na ideia
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python roteirizador.py
+
+      - name: Upload dos arquivos gerados
+        uses: actions/upload-artifact@v4
+        with:
+          name: conteudo-tiktok
+          path: |
+            ideias_tiktok_*.txt
+            roteiro_tiktok_*.txt

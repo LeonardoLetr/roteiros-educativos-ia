@@ -2,7 +2,7 @@ name: Gerar Ideias para TikTok
 
 on:
   schedule:
-    - cron: '0 11 * * *'  # Roda todo dia às 8h BRT (11h UTC)
+    - cron: '0 11 * * *'  # Roda diariamente às 08h (BRT)
   workflow_dispatch:
 
 jobs:
@@ -24,3 +24,9 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python app.py
+
+      - name: Upload do arquivo de ideias
+        uses: actions/upload-artifact@v3
+        with:
+          name: ideias-tiktok
+          path: ideias_tiktok_*.txt

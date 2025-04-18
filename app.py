@@ -15,7 +15,7 @@ Você é um criador de conteúdo especializado em educação infantil e desenvol
 - Pedagogia
 - Desenvolvimento infantil
 
-Com base nisso, me sugira 1 ideia de vídeos curtos para TikTok com no minimo 1 minuto. A ideia deve conter:
+Com base nisso, me sugira 1 ideia de vídeo curto para TikTok com no minimo 1 minuto. A ideia deve conter:
 
 1. Título envolvente
 2. Objetivo do vídeo (o que ensinar ou conscientizar)

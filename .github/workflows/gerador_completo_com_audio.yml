@@ -1,4 +1,4 @@
-name: Geração Completa de Conteúdo com Envio de E-mail
+name: Geração Completa de Conteúdo TikTok
 
 on:
   schedule:
@@ -30,11 +30,10 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python roteirizador.py
 
-      # OBS: etapa de geração de imagens está desativada para evitar custo com DALL·E
-      # - name: Gerar imagens do roteiro
-      #   env:
-      #     OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      #   run: python gerador_imagens.py
+      - name: Gerar narração em áudio com ElevenLabs
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: python narrador.py
 
       - name: Enviar roteiro por e-mail
         env:
@@ -51,3 +50,4 @@ jobs:
             ideias_tiktok_*.txt
             roteiro_tiktok_*.txt
             imagens_para_gerar_*.txt
+            narracao_tiktok_*.mp3

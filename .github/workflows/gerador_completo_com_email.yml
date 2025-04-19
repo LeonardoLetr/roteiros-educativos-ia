@@ -1,4 +1,4 @@
-name: Geração Completa de Conteúdo TikTok
+name: Geração Completa de Conteúdo com Envio de E-mail
 
 on:
   schedule:

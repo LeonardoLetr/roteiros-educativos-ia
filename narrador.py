@@ -6,7 +6,7 @@ from glob import glob
 
 # Obter API Key e ID da voz (padrão: Bella)
 api_key = os.getenv("ELEVENLABS_API_KEY")
-voice_id = "MZxV5lN3cv7hi1376O0m"  # Nova voz PT-BR mais natural
+voice_id = "iScHbNW8K33gNo3lGgbo"  # Nova voz PT-BR mais natural
 
 # Encontrar o roteiro mais recente
 arquivos = sorted(glob("roteiro_tiktok_*.txt"), reverse=True)

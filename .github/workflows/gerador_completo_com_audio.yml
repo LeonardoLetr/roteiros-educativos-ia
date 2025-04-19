@@ -30,10 +30,11 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python roteirizador.py
 
-      - name: Gerar narração em áudio com ElevenLabs
+      - name: Gerar narração com Azure TTS (Francisca Neural)
         env:
-          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-        run: python narrador.py
+          SPEECH_KEY: ${{ secrets.SPEECH_KEY }}
+          SPEECH_REGION: ${{ secrets.SPEECH_REGION }}
+        run: python narrador_azure_fluido.py
 
       - name: Enviar roteiro por e-mail
         env:
